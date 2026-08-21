@@ -10,7 +10,9 @@ import {
   Code2,
   Award,
   Send,
-  Briefcase
+  Briefcase,
+  Menu,
+  X as CloseMenu
 } from "lucide-react";
 import { FolderKanban } from "lucide-react";
 import { useState } from "react";
@@ -39,14 +41,21 @@ export function SectionTitle({ icon, title }) {
 }
 
 export function Navbar({ darkMode, onToggleTheme }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigationItems = [
+    ["Home", "#home"],
+    ["Skills", "#skills"],
+    ["Projects", "#projects"],
+    ["Experience", "#experience"]
+  ];
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">Portfolio</div>
-      <div className="nav-links">
-        <a href="#home">Home</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
+      <div className={`nav-links ${menuOpen ? "mobile-open" : ""}`} id="mobile-navigation">
+        {navigationItems.map(([label, href]) => (
+          <a href={href} key={href} onClick={() => setMenuOpen(false)}>{label}</a>
+        ))}
       </div>
       <div className="nav-social">
         <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer" aria-label="GitHub">
@@ -60,6 +69,15 @@ export function Navbar({ darkMode, onToggleTheme }) {
         </a>
         <button className="theme-toggle" onClick={onToggleTheme} aria-label="Toggle theme">
           {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+        <button
+          className="mobile-menu-toggle"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+        >
+          {menuOpen ? <CloseMenu size={22} /> : <Menu size={22} />}
         </button>
       </div>
     </nav>
@@ -193,7 +211,7 @@ export function Projects({ projects }) {
       <div className="projects-grid">
         {visibleProjects.map((project) => <article className="project-card" key={project.title}>
           <div className="project-image-container">
-            <img src={project.image} alt={project.title} className="project-image" />
+            <img src={project.image} alt={project.title} className="project-image" loading="lazy" decoding="async" />
             <span className="project-status">{project.live ? "Live" : "Project"}</span>
             <span className="project-category">{project.category}</span>
           </div>
@@ -225,7 +243,7 @@ export function Certifications({ certifications }) {
       <p className="section-description">Continuous learning and professional development through industry-recognized certifications.</p>
       <div className="certifications-grid">
         {certifications.map((certificate) => <div className="certificate-card" key={certificate.title}>
-          <div className="certificate-image"><img src={certificate.image} alt={certificate.title} /></div>
+          <div className="certificate-image"><img src={certificate.image} alt={certificate.title} loading="lazy" decoding="async" /></div>
           <div className="certificate-content"><span className="certificate-label">Certification</span><h3>{certificate.title}</h3><p>{certificate.issuer}</p><div className="certificate-bottom"><span>{certificate.year}</span><a href="#">View Certificate</a></div></div>
         </div>)}
       </div>

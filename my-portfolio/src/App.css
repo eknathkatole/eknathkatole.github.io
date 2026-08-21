@@ -123,6 +123,20 @@ textarea {
   cursor: pointer;
 }
 
+.mobile-menu-toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--line, #e5e5e5);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
 .dark .navbar {
   background: #0d0d0d;
   border-color: #2a2a2a;
@@ -1323,6 +1337,36 @@ footer a:hover {
     display: none;
   }
 
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-links.mobile-open {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px;
+    border: 1px solid var(--line, #e5e5e5);
+    border-radius: 12px;
+    background: var(--surface, #fff);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+  }
+
+  .nav-links.mobile-open a {
+    padding: 13px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+  }
+
+  .nav-links.mobile-open a:hover {
+    background: var(--accent-soft, #eff6ff);
+  }
+
   .nav-social {
     gap: 15px;
   }
@@ -1847,5 +1891,205 @@ footer {
 
   .project-content h3 {
     font-size: 18px;
+  }
+}
+
+/* MOBILE LAYOUT */
+
+@media (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .navbar-logo {
+    font-size: 22px;
+  }
+
+  .nav-social {
+    gap: 12px;
+  }
+
+  .nav-social a,
+  .theme-toggle {
+    width: 24px;
+    height: 24px;
+  }
+
+  .section {
+    width: calc(100% - 32px);
+    padding: 56px 0;
+  }
+
+  .hero {
+    min-height: auto;
+    gap: 30px;
+    padding-top: 56px;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
+  .profile-circle {
+    width: min(220px, 68vw);
+    height: min(220px, 68vw);
+    border-width: 8px;
+  }
+
+  .floating-badge {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  .badge-one {
+    top: 8px;
+    right: 8%;
+  }
+
+  .badge-two {
+    bottom: 16px;
+    left: 8%;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 52px);
+    letter-spacing: -2px;
+  }
+
+  .hero h2 {
+    font-size: 19px;
+    line-height: 1.35;
+  }
+
+  .hero p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    min-height: 46px;
+    padding: 12px 14px;
+  }
+
+  .experience-card,
+  .skill-card,
+  .project-content {
+    padding: 16px;
+  }
+
+  .experience-header {
+    gap: 10px;
+  }
+
+  .experience-header h3 {
+    font-size: 16px;
+  }
+
+  .experience-header .company,
+  .duration {
+    font-size: 13px;
+  }
+
+  .experience-body li,
+  .impact p {
+    font-size: 13px;
+  }
+
+  .technology-grid {
+    gap: 7px;
+  }
+
+  .technology-box {
+    min-width: 0;
+    min-height: 58px;
+    padding: 8px;
+    overflow-wrap: anywhere;
+    font-size: 11px;
+  }
+
+  .projects-title,
+  .skills-title {
+    margin-bottom: 24px;
+  }
+
+  .project-image-container {
+    height: 190px;
+  }
+
+  .project-content h3 {
+    font-size: 18px;
+  }
+
+  .project-description,
+  .project-features ul {
+    font-size: 13px;
+  }
+
+  .project-actions {
+    margin-top: 20px;
+  }
+
+  .project-button {
+    min-height: 44px;
+  }
+
+  .github-card {
+    padding: 16px;
+  }
+
+  .github-calendar-wrapper > div {
+    min-width: 640px;
+  }
+
+  .contact-container {
+    gap: 26px;
+    padding: 28px 16px;
+  }
+
+  .contact-info h2 {
+    font-size: 26px;
+  }
+
+  .contact-info p {
+    font-size: 14px;
+  }
+
+  .contact-links a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    font-size: 13px;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  .contact-form textarea {
+    min-height: 130px;
+  }
+
+  footer {
+    align-items: center;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  footer div {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
