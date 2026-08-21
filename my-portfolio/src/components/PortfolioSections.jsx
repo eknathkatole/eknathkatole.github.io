@@ -98,7 +98,7 @@ export function Hero() {
         </p>
         <div className="location"><MapPin size={15} />Pune, Maharashtra, India</div>
         <div className="hero-buttons">
-          <a className="primary-btn" href="/resume.pdf" download><Download size={16} />Download CV</a>
+          <a className="primary-btn" href={`${import.meta.env.BASE_URL}resume.pdf`} download><Download size={16} />Download CV</a>
           <a className="secondary-btn" href="#contact"><Mail size={16} />Get in Touch</a>
         </div>
         <div className="social-links">
