@@ -12,6 +12,8 @@ import {
   Send,
   Briefcase
 } from "lucide-react";
+import { FolderKanban } from "lucide-react";
+import { useState } from "react";
 
 import profileImage from "../assets/profile.png";
 
@@ -165,19 +167,52 @@ export function Stats() {
 }
 
 export function Projects({ projects }) {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const filters = ["All", "Full Stack", "Frontend", "Backend"];
+  const visibleProjects = projects.filter((project) => (
+    activeFilter === "All" || project.category === activeFilter
+  ));
+
   return (
-    <section id="projects" className="section">
-      <SectionTitle icon={<Code2 size={18} />} title="Featured Projects" />
-      <div className="project-filters"><button className="active">All</button><button>Web</button><button>Java</button><button>Cloud</button></div>
+    <section id="projects" className="projects-section section">
+      <div className="projects-title">
+        <FolderKanban size={28} />
+        <h2>Featured Projects</h2>
+      </div>
+      <div className="project-filters">
+        {filters.map((filter) => (
+          <button
+            className={activeFilter === filter ? "active" : ""}
+            key={filter}
+            onClick={() => setActiveFilter(filter)}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
       <div className="projects-grid">
-        {projects.map((project) => <div className="project-card" key={project.title}>
-          <div className="project-image"><img src={project.image} alt={project.title} /></div>
-          <div className="project-content">
-            <div className="project-top"><div><h3>{project.title}</h3><p>{project.description}</p></div><span className="project-status">Completed</span></div>
-            <div className="project-tech">{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
-            <div className="project-buttons"><a href={project.github} target="_blank" rel="noreferrer"><Github size={15} />Code</a><a href={project.demo}><ExternalLink size={15} />Demo</a></div>
+        {visibleProjects.map((project) => <article className="project-card" key={project.title}>
+          <div className="project-image-container">
+            <img src={project.image} alt={project.title} className="project-image" />
+            <span className="project-status">{project.live ? "Live" : "Project"}</span>
+            <span className="project-category">{project.category}</span>
           </div>
-        </div>)}
+          <div className="project-content">
+            <h3>{project.title}</h3>
+            <p className="project-description">{project.description}</p>
+            <div className="project-technologies">
+              {project.technologies.map((technology) => <span className="technology-tag" key={technology}>{technology}</span>)}
+            </div>
+            <div className="project-features">
+              <h4><span />Key Features</h4>
+              <ul>{project.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+            </div>
+            <div className="project-actions">
+              <a href={project.github} target="_blank" rel="noreferrer" className="project-button"><Github size={17} />View Code</a>
+              {project.live && project.demo !== "#" && <a href={project.demo} target="_blank" rel="noreferrer" className="project-button primary"><ExternalLink size={17} />Live Demo</a>}
+            </div>
+          </div>
+        </article>)}
       </div>
     </section>
   );
@@ -200,12 +235,74 @@ export function Certifications({ certifications }) {
 }
 
 export function Contact() {
+  const [formStatus, setFormStatus] = useState("");
+  const [isSending, setIsSending] = useState(false);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    setIsSending(true);
+    setFormStatus("Sending your message...");
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/katoleeknath7@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Portfolio contact from ${name}`,
+          _captcha: "false"
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Message request failed");
+      }
+
+      event.currentTarget.reset();
+      setFormStatus("Message sent successfully. Thank you!");
+    } catch {
+      setFormStatus("Unable to send online. Please email katoleeknath7@gmail.com directly.");
+    } finally {
+      setIsSending(false);
+    }
+  }
+
   return (
     <section id="contact" className="section contact-section">
       <SectionTitle icon={<Mail size={18} />} title="Contact Me" />
       <div className="contact-container">
-        <div className="contact-info"><h2>Let's build something together.</h2><p>I'm open to opportunities, collaborations, internships and interesting projects.</p><div className="contact-links"><a href="mailto:your-email@gmail.com"><Mail size={17} />your-email@gmail.com</a><a href="https://github.com/eknathkatole"><Github size={17} />github.com/eknathkatole</a></div></div>
-        <form className="contact-form"><label>Name</label><input type="text" placeholder="Your name" /><label>Email</label><input type="email" placeholder="your@email.com" /><label>Message</label><textarea rows="5" placeholder="Your message..." /><button type="submit"><Send size={15} />Send Message</button></form>
+        <div className="contact-info">
+          <span className="contact-eyebrow">Have a project in mind?</span>
+          <h2>Let's build something together.</h2>
+          <p>I'm open to opportunities, collaborations, internships and interesting projects.</p>
+          <div className="contact-links">
+            <a href="mailto:katoleeknath7@gmail.com"><Mail size={17} />katoleeknath7@gmail.com</a>
+            <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer"><Github size={17} />github.com/eknathkatole</a>
+          </div>
+        </div>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <label htmlFor="contact-name">Name</label>
+          <input id="contact-name" name="name" type="text" placeholder="Your name" required />
+          <label htmlFor="contact-email">Email</label>
+          <input id="contact-email" name="email" type="email" placeholder="your@email.com" required />
+          <label htmlFor="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="5" placeholder="Your message..." required />
+          <button type="submit" disabled={isSending}>
+            <Send size={15} />
+            {isSending ? "Sending..." : "Send Message"}
+          </button>
+          <span className="contact-status" role="status">{formStatus}</span>
+        </form>
       </div>
     </section>
   );

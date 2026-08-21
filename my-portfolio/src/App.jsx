@@ -183,35 +183,135 @@ const skills = [
 
 const projects = [
   {
-    title: "PaanFresh E-Commerce Platform",
-    description: "A responsive e-commerce website for showcasing and selling PaanFresh products.",
-    image: "/projects/paanfresh.png",
-    technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    title: "Smart Banking Management System",
+    category: "Backend",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+    description: "A Java-based banking management application for managing customers, accounts, transactions, deposits, withdrawals and fund transfers.",
+    technologies: ["Java", "Hibernate/JPA", "MySQL", "OOP", "Maven"],
+    features: [
+      "Customer and account management",
+      "Account creation and balance inquiry",
+      "Deposit and withdrawal operations",
+      "Fund transfer and transaction history",
+      "Hibernate ORM and database mapping",
+      "Exception and error handling",
+      "Relational database design"
+    ],
     github: "https://github.com/eknathkatole",
-    demo: "#"
+    demo: "#",
+    live: true
   },
   {
-    title: "Real-Time Currency Converter",
-    description: "A responsive currency conversion application using API-based exchange rates.",
-    image: "/projects/currency.png",
-    technologies: ["HTML", "CSS", "JavaScript", "API"],
+    title: "Employee Management System",
+    category: "Full Stack",
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80",
+    description: "A responsive employee management application with CRUD operations, search, filtering, pagination and REST API integration.",
+    technologies: ["React.js", "JavaScript", "Tailwind CSS", "REST API", "Axios"],
+    features: [
+      "Employee dashboard",
+      "Add, edit and delete employees",
+      "Employee search and department filtering",
+      "Sorting and pagination",
+      "Form validation",
+      "REST API integration",
+      "Reusable React components",
+      "Loading and error handling"
+    ],
     github: "https://github.com/eknathkatole",
-    demo: "#"
+    demo: "#",
+    live: true
   },
   {
-    title: "Developer Portfolio",
-    description: "Personal portfolio website showcasing projects, technical skills and experience.",
-    image: "/projects/portfolio.png",
-    technologies: ["React", "JavaScript", "CSS", "GitHub"],
+    title: "E-Commerce Shopping Website",
+    category: "Full Stack",
+    image: "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=1200&q=80",
+    description: "A modern shopping application with product discovery, filtering, cart management, wishlist functionality and checkout UI.",
+    technologies: ["React.js", "JavaScript", "Tailwind CSS", "Context API", "REST API"],
+    features: [
+      "Product catalogue and details",
+      "Product search and category filtering",
+      "Shopping cart and quantity management",
+      "Wishlist functionality",
+      "Checkout interface",
+      "React Router navigation",
+      "Context API state management",
+      "Responsive design"
+    ],
     github: "https://github.com/eknathkatole",
-    demo: "#"
+    demo: "#",
+    live: true
+  },
+  {
+    title: "PaanFresh E-Commerce Website",
+    category: "Frontend",
+    image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
+    description: "A responsive e-commerce website developed for showcasing products with an interactive shopping interface and mobile-friendly design.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS"],
+    features: [
+      "Product catalogue", "Product cards", "Product search", "Category filtering",
+      "Shopping cart interface", "Responsive navigation", "DOM manipulation",
+      "Form validation", "Responsive UI"
+    ],
+    github: "https://github.com/eknathkatole",
+    demo: "#",
+    live: true
+  },
+  {
+    title: "Food Delivery API",
+    category: "Backend",
+    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80",
+    description: "A backend REST API for a food delivery platform with restaurant, menu, customer, cart and order management.",
+    technologies: ["Java", "Spring Boot", "REST API", "Hibernate/JPA", "MySQL", "Maven"],
+    features: [
+      "User registration and authentication",
+      "Restaurant management",
+      "Restaurant search",
+      "Menu management",
+      "Food item management",
+      "Food category management",
+      "Cart management",
+      "Add and remove food items",
+      "Quantity management",
+      "Order creation",
+      "Order management",
+      "Order status tracking",
+      "Customer and address management",
+      "Database relationships using JPA",
+      "CRUD operations",
+      "RESTful API endpoints",
+      "Request validation",
+      "Exception handling",
+      "Global error handling",
+      "MySQL database integration",
+      "Hibernate ORM",
+      "Maven project management",
+      "API testing using Postman"
+    ],
+    github: "https://github.com/eknathkatole",
+    demo: "#",
+    live: true
   }
 ];
 
 const certifications = [
-  { title: "Java Full Stack Development", issuer: "Training / Institute", year: "2026", image: "/certificates/java.png" },
-  { title: "SQL Certification", issuer: "Training / Institute", year: "2026", image: "/certificates/sql.png" },
-  { title: "AWS Cloud Practitioner", issuer: "Amazon Web Services", year: "2026", image: "/certificates/aws.png" }
+  {
+    title: "Java Full Stack Development",
+    issuer: "Training / Institute",
+    year: "2026",
+    image: "https://placehold.co/900x500/e8f0ff/1e3a8a?text=Java+Certificate"
+  },
+  {
+    title: "SQL Certification",
+    issuer: "Training / Institute",
+    year: "2026",
+    image: "https://placehold.co/900x500/eafaf1/166534?text=SQL+Certificate"
+  },
+  {
+    title: "AWS Cloud Practitioner",
+    issuer: "Amazon Web Services",
+    year: "2026",
+    image: "https://placehold.co/900x500/fef3c7/92400e?text=AWS+Certificate"
+  }
 ];
 
 function App() {
