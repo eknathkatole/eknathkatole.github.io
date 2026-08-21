@@ -189,6 +189,60 @@ textarea {
   gap: 70px;
 }
 
+.hero-content > * {
+  animation: hero-rise 0.7s ease both;
+}
+
+.hero-content > :nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.hero-content > :nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.hero-content > :nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.hero-content > :nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+.hero-content > :nth-child(5) {
+  animation-delay: 0.33s;
+}
+
+.hero-content > :nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.hero-image {
+  animation: hero-image-in 0.9s 0.18s ease both;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .availability {
   display: inline-flex;
   align-items: center;
@@ -205,6 +259,13 @@ textarea {
   color: #555;
 
   margin-bottom: 18px;
+
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.availability:hover {
+  transform: translateY(-2px);
+  background: #eeeeee;
 }
 
 .green-dot {
@@ -273,6 +334,14 @@ textarea {
 
   font-size: 12px;
   font-weight: 600;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .primary-btn {
@@ -284,11 +353,25 @@ textarea {
   border: 1px solid #ddd;
 }
 
+.secondary-btn:hover {
+  background: #f7f7f7;
+}
+
 .social-links {
   display: flex;
   gap: 15px;
   margin-top: 25px;
   color: #777;
+}
+
+.social-links a {
+  display: flex;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.social-links a:hover {
+  color: #111;
+  transform: translateY(-4px) scale(1.08);
 }
 
 .hero-image {
@@ -312,6 +395,25 @@ textarea {
   background: #fafafa;
 
   box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+
+  transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease;
+  animation: profile-float 5s ease-in-out 1s infinite;
+}
+
+.profile-circle:hover {
+  animation-play-state: paused;
+  transform: scale(1.04) rotate(1deg);
+  border-color: #dedede;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes profile-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .profile-circle img {
@@ -332,6 +434,15 @@ textarea {
   font-size: 10px;
 
   border-radius: 20px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: badge-float 4s ease-in-out infinite;
+}
+
+.floating-badge:hover {
+  animation-play-state: paused;
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .badge-one {
@@ -342,6 +453,34 @@ textarea {
 .badge-two {
   bottom: 30px;
   left: 10px;
+  animation-delay: -1.8s;
+}
+
+@keyframes badge-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content > *,
+  .hero-image,
+  .profile-circle,
+  .floating-badge {
+    animation: none;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .social-links a,
+  .availability,
+  .profile-circle,
+  .floating-badge {
+    transition: none;
+  }
 }
 
 
@@ -462,126 +601,171 @@ textarea {
 /* GITHUB */
 
 .github-card {
+  width: 100%;
   border: 1px solid #e8e8e8;
-  border-radius: 10px;
-
-  padding: 20px;
+  border-radius: 12px;
+  padding: 24px;
+  background: #ffffff;
+  overflow: hidden;
 }
 
 .dark .github-card {
   border-color: #292929;
+  background: #151515;
 }
 
 .contribution-header {
   display: flex;
-  justify-content: space-between;
-
-  font-size: 11px;
-  color: #777;
-
-  margin-bottom: 15px;
-}
-
-.contribution-grid {
-  display: grid;
-  grid-template-columns: repeat(24, 1fr);
-  gap: 4px;
-}
-
-.contribution {
-  width: 100%;
-  aspect-ratio: 1;
-
-  border-radius: 2px;
-
-  background: #eeeeee;
-}
-
-.contribution-1 {
-  background: #d8f3dc;
-}
-
-.contribution-2 {
-  background: #95d5b2;
-}
-
-.contribution-3 {
-  background: #52b788;
-}
-
-.contribution-4 {
-  background: #1b4332;
-}
-
-.github-button {
-  margin: 20px auto 0;
-
-  width: fit-content;
-
-  display: flex;
   align-items: center;
-  gap: 7px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #777;
+}
 
-  background: #050505;
-  color: white;
+.contribution-header a {
+  color: #666;
+  font-size: 12px;
+  transition: color 0.2s ease;
+}
 
-  padding: 9px 14px;
+.contribution-header a:hover {
+  color: #111;
+}
 
-  border-radius: 6px;
+.github-calendar-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0;
+}
 
-  font-size: 11px;
+.github-calendar-wrapper > div {
+  min-width: 700px;
+}
+
+.dark .contribution-header a:hover {
+  color: #fff;
 }
 
 
 /* SKILLS */
 
-.skills-grid {
+.skills-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.skills-title h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.skills-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
-  gap: 15px;
+  gap: 20px;
 }
 
 .skill-card {
   border: 1px solid #e8e8e8;
-
   border-radius: 10px;
+  padding: 22px;
+  background: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
 
-  padding: 20px;
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: #cfcfcf;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card-wide {
+  grid-column: 1 / -1;
 }
 
 .dark .skill-card {
   border-color: #292929;
+  background: #151515;
 }
 
-.skill-title {
+.dark .skill-card:hover {
+  border-color: #444;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.skill-card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-
-  margin-bottom: 17px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.skill-title h3 {
-  font-size: 13px;
+.skill-main-icon,
+.technology-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
 }
 
-.skill-title p {
-  font-size: 10px;
+.skill-main-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: #f3f4f6;
+}
+
+.skill-heading h3 {
+  font-size: 15px;
+}
+
+.skill-heading p {
+  font-size: 11px;
   color: #888;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
-.skill-items span {
-  background: #f5f5f5;
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
 
-  padding: 7px 10px;
-
-  border-radius: 5px;
-
-  font-size: 10px;
-
+.technology-box {
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border: 1px solid #ededed;
+  border-radius: 7px;
+  background: #fafafa;
   color: #555;
+  font-size: 10px;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.technology-box:hover {
+  transform: translateY(-2px);
+  background: #f1f1f1;
+  color: #111;
+}
+
+.dark .skill-main-icon,
+.dark .technology-box {
+  background: #202020;
+  border-color: #333;
+  color: #ddd;
+}
+
+.dark .technology-box:hover {
+  background: #292929;
+  color: #fff;
 }
 
 
@@ -1085,9 +1269,17 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
-  .skills-grid,
+  .skills-container,
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skill-card-wide {
+    grid-column: auto;
+  }
+
+  .technology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .certifications-grid {
@@ -1141,10 +1333,6 @@ footer a:hover {
   .primary-btn,
   .secondary-btn {
     justify-content: center;
-  }
-
-  .contribution-grid {
-    gap: 2px;
   }
 
   .stats {

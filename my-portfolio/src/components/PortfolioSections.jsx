@@ -8,16 +8,24 @@ import {
   Download,
   MapPin,
   Code2,
-  Database,
-  Cloud,
-  Monitor,
-  Server,
   Award,
   Send,
   Briefcase
 } from "lucide-react";
 
 import profileImage from "../assets/profile.png";
+
+function GithubIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.85 10.91.57.1.78-.25.78-.55v-2.15c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.04.78 2.1v3.12c0 .3.21.65.79.54A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" /></svg>;
+}
+
+function LinkedinIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.68H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.37 4.28 5.45v6.3ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45h3.57V8.99H3.54v11.46ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" /></svg>;
+}
+
+function XIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.24 2H21.9l-8 9.14L23.3 22h-7.2l-5.64-7.35L4.02 22H.35l8.55-9.77L.9 2h7.38l5.1 6.72L18.24 2Zm-1.28 17.93h2.03L6.98 3.95H4.8l12.16 15.98Z" /></svg>;
+}
 
 export function SectionTitle({ icon, title }) {
   return (
@@ -40,13 +48,13 @@ export function Navbar({ darkMode, onToggleTheme }) {
       </div>
       <div className="nav-social">
         <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.85 10.91.57.1.78-.25.78-.55v-2.15c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.67 1.25 3.32.96.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.04.78 2.1v3.12c0 .3.21.65.79.54A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" /></svg>
+          <GithubIcon />
         </a>
         <a href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.58c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.44-2.14 2.94v5.68H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.28 2.37 4.28 5.45v6.3ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.54 20.45h3.57V8.99H3.54v11.46ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z" /></svg>
+          <LinkedinIcon />
         </a>
         <a href="#" target="_blank" rel="noreferrer" aria-label="Twitter">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.24 2H21.9l-8 9.14L23.3 22h-7.2l-5.64-7.35L4.02 22H.35l8.55-9.77L.9 2h7.38l5.1 6.72L18.24 2Zm-1.28 17.93h2.03L6.98 3.95H4.8l12.16 15.98Z" /></svg>
+          <XIcon />
         </a>
         <button className="theme-toggle" onClick={onToggleTheme} aria-label="Toggle theme">
           {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -117,35 +125,36 @@ export function Experience({ experiences }) {
   );
 }
 
-export function GithubActivity() {
-  return (
-    <section className="section github-section">
-      <SectionTitle icon={<Github size={18} />} title="GitHub Activity" />
-      <div className="github-card">
-        <div className="contribution-header"><span>GitHub Contributions</span><span>Less → More</span></div>
-        <div className="contribution-grid">
-          {Array.from({ length: 120 }, (_, index) => <span key={index} className={`contribution contribution-${index % 5}`} />)}
-        </div>
-        <a className="github-button" href="https://github.com/eknathkatole" target="_blank" rel="noreferrer"><Github size={15} />View GitHub Profile</a>
-      </div>
-    </section>
-  );
-}
-
-const skillIcons = { Server, Monitor, Database, Cloud };
-
 export function Skills({ skills }) {
   return (
-    <section id="skills" className="section">
-      <SectionTitle icon={<Code2 size={18} />} title="Skills & Technologies" />
-      <div className="skills-grid">
-        {skills.map((skill) => {
-          const Icon = skillIcons[skill.icon];
-          return <div className="skill-card" key={skill.title}>
-            <div className="skill-title"><Icon size={18} /><div><h3>{skill.title}</h3><p>Technologies I work with</p></div></div>
-            <div className="skill-items">{skill.items.map((item) => <span key={item}>{item}</span>)}</div>
-          </div>;
-        })}
+    <section id="skills" className="skills-section section">
+      <div className="skills-title">
+        <Code2 size={28} />
+        <h2>Skills & Technologies</h2>
+      </div>
+      <div className="skills-container">
+        {skills.map((skill, index) => (
+          <div
+            className={`skill-card ${index === 4 ? "skill-card-wide" : ""}`}
+            key={skill.title}
+          >
+            <div className="skill-card-header">
+              <div className="skill-main-icon">{skill.icon}</div>
+              <div className="skill-heading">
+                <h3>{skill.title}</h3>
+                <p>{skill.subtitle}</p>
+              </div>
+            </div>
+            <div className="technology-grid">
+              {skill.items.map((item) => (
+                <div className="technology-box" key={item.name}>
+                  <div className="technology-icon">{item.icon}</div>
+                  <span>{item.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
