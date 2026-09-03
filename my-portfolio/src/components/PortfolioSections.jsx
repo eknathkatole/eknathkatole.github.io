@@ -61,7 +61,7 @@ export function Navbar({ darkMode, onToggleTheme }) {
         <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer" aria-label="GitHub">
           <GithubIcon />
         </a>
-        <a href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <LinkedinIcon />
         </a>
         <a href="#" target="_blank" rel="noreferrer" aria-label="Twitter">
@@ -102,9 +102,9 @@ export function Hero() {
           <a className="secondary-btn" href="#contact"><Mail size={16} />Get in Touch</a>
         </div>
         <div className="social-links">
-          <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer"><Github size={19} /></a>
-          <a href="#contact"><Linkedin size={19} /></a>
-          <a href="#contact"><Mail size={19} /></a>
+          <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={19} /></a>
+          <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={19} /></a>
+          <a href="mailto:katoleeknath7@gmail.com" aria-label="Email"><Mail size={19} /></a>
         </div>
       </div>
       <div className="hero-image">
@@ -181,7 +181,21 @@ export function Skills({ skills }) {
 }
 
 export function Stats() {
-  return <section className="stats">{[["10+", "Technologies"], ["3+", "Projects"], ["2+", "Internships"], ["3+", "Certifications"]].map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}</section>;
+  return (
+    <section className="stats">
+      {[
+        ["20+", "Technologies"],
+        ["5+", "Featured Projects"],
+        ["2+", "Internships / Training"],
+        ["3+", "Certifications"]
+      ].map(([value, label]) => (
+        <div key={label}>
+          <strong>{value}</strong>
+          <span>{label}</span>
+        </div>
+      ))}
+    </section>
+  );
 }
 
 export function Projects({ projects }) {
@@ -305,6 +319,7 @@ export function Contact() {
           <p>I'm open to opportunities, collaborations, internships and interesting projects.</p>
           <div className="contact-links">
             <a href="mailto:katoleeknath7@gmail.com"><Mail size={17} />katoleeknath7@gmail.com</a>
+            <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer"><Linkedin size={17} />linkedin.com/in/eknath--katole</a>
             <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer"><Github size={17} />github.com/eknathkatole</a>
           </div>
         </div>
@@ -327,5 +342,13 @@ export function Contact() {
 }
 
 export function Footer() {
-  return <footer><span>© 2026 Eknath Katole. All rights reserved.</span><div><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="https://github.com/eknathkatole"><Github size={15} /></a></div></footer>;
+  return (
+    <footer>
+      <span>© 2026 Eknath Katole. All rights reserved.</span>
+      <div>
+        <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} /></a>
+        <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a>
+      </div>
+    </footer>
+  );
 }

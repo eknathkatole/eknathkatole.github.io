@@ -48,6 +48,8 @@ import {
   Stats
 } from "./components/PortfolioSections.jsx";
 import GithubActivity from "./components/GithubActivity.jsx";
+import dmartImg from "./assets/Food-Delivery-proj.png";
+import foodDeliveryImg from "./assets/Screenshot 2026-09-03 225411.png";
 
 const experiences = [
   {
@@ -222,23 +224,21 @@ const projects = [
     live: true
   },
   {
-    title: "E-Commerce Shopping Website",
+    title: "Mini D-Mart E-Commerce Platform",
     category: "Full Stack",
-    image: "https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=1200&q=80",
-    description: "A modern shopping application with product discovery, filtering, cart management, wishlist functionality and checkout UI.",
-    technologies: ["React.js", "JavaScript", "Tailwind CSS", "Context API", "REST API"],
+    image: dmartImg,
+    description: "A full-stack e-commerce shopping platform featuring item browsing, category filtering, cart management, checkout UI, and backend API integration.",
+    technologies: ["React.js", "JavaScript", "Tailwind CSS", "Java", "Spring Boot", "MySQL", "REST API"],
     features: [
-      "Product catalogue and details",
-      "Product search and category filtering",
-      "Shopping cart and quantity management",
-      "Wishlist functionality",
-      "Checkout interface",
-      "React Router navigation",
-      "Context API state management",
-      "Responsive design"
+      "Product catalogue and category filtering",
+      "Interactive shopping cart & quantity controls",
+      "Search and item discovery",
+      "Checkout and order workflow",
+      "Backend REST API integration",
+      "Responsive UI deployed on Vercel"
     ],
-    github: "https://github.com/eknathkatole",
-    demo: "#",
+    github: "https://github.com/eknathkatole/Mini-Dmartby-Eknath-Katole.git",
+    demo: "https://dmart-fronten-demo.vercel.app/",
     live: true
   },
   {
@@ -257,38 +257,23 @@ const projects = [
     live: true
   },
   {
-    title: "Food Delivery API",
+    title: "Food Delivery Platform",
     category: "Backend",
-    image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80",
-    description: "A backend REST API for a food delivery platform with restaurant, menu, customer, cart and order management.",
-    technologies: ["Java", "Spring Boot", "REST API", "Hibernate/JPA", "MySQL", "Maven"],
+    image: foodDeliveryImg,
+    description: "A comprehensive food delivery REST API and platform with restaurant, menu, customer, cart and order tracking capabilities.",
+    technologies: ["Java", "Spring Boot", "REST API", "Hibernate/JPA", "MySQL", "Maven", "Postman"],
     features: [
       "User registration and authentication",
-      "Restaurant management",
-      "Restaurant search",
-      "Menu management",
-      "Food item management",
-      "Food category management",
-      "Cart management",
-      "Add and remove food items",
-      "Quantity management",
-      "Order creation",
-      "Order management",
-      "Order status tracking",
+      "Restaurant & menu management",
+      "Food item & category management",
+      "Cart operations & quantity management",
+      "Order creation and live status tracking",
       "Customer and address management",
-      "Database relationships using JPA",
-      "CRUD operations",
-      "RESTful API endpoints",
-      "Request validation",
-      "Exception handling",
-      "Global error handling",
-      "MySQL database integration",
-      "Hibernate ORM",
-      "Maven project management",
-      "API testing using Postman"
+      "Database relationships using JPA/Hibernate",
+      "RESTful API endpoints with global error handling"
     ],
-    github: "https://github.com/eknathkatole",
-    demo: "#",
+    github: "https://github.com/eknathkatole/food-delivery-platform.git",
+    demo: "https://eknathkatole.github.io/food-delivery-platform/",
     live: true
   }
 ];
@@ -323,7 +308,7 @@ function App() {
       <main>
         <Hero />
         <Experience experiences={experiences} />
-        <GithubActivity />
+        <GithubActivity darkMode={darkMode} />
         <Skills skills={skills} />
         <Stats />
         <Projects projects={projects} />
