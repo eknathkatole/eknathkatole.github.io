@@ -28,7 +28,7 @@ function LinkedinIcon() {
 }
 
 function XIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.24 2H21.9l-8 9.14L23.3 22h-7.2l-5.64-7.35L4.02 22H.35l8.55-9.77L.9 2h7.38l5.1 6.72L18.24 2Zm-1.28 17.93h2.03L6.98 3.95H4.8l12.16 15.98Z" /></svg>;
+  return <svg viewBox="0 0 24 24" width="100%" height="100%" aria-hidden="true"><path fill="currentColor" d="M18.24 2H21.9l-8 9.14L23.3 22h-7.2l-5.64-7.35L4.02 22H.35l8.55-9.77L.9 2h7.38l5.1 6.72L18.24 2Zm-1.28 17.93h2.03L6.98 3.95H4.8l12.16 15.98Z" /></svg>;
 }
 
 export function SectionTitle({ icon, title }) {
@@ -64,7 +64,7 @@ export function Navbar({ darkMode, onToggleTheme }) {
         <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <LinkedinIcon />
         </a>
-        <a href="#" target="_blank" rel="noreferrer" aria-label="Twitter">
+        <a href="https://x.com/eknath_Katole" target="_blank" rel="noreferrer" aria-label="X (Twitter)">
           <XIcon />
         </a>
         <button className="theme-toggle" onClick={onToggleTheme} aria-label="Toggle theme">
@@ -104,6 +104,7 @@ export function Hero() {
         <div className="social-links">
           <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={19} /></a>
           <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={19} /></a>
+          <a href="https://x.com/eknath_Katole" target="_blank" rel="noreferrer" aria-label="X (Twitter)"><span style={{ display: 'inline-flex', width: 19, height: 19 }}><XIcon /></span></a>
           <a href="mailto:katoleeknath7@gmail.com" aria-label="Email"><Mail size={19} /></a>
         </div>
       </div>
@@ -321,6 +322,7 @@ export function Contact() {
             <a href="mailto:katoleeknath7@gmail.com"><Mail size={17} />katoleeknath7@gmail.com</a>
             <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer"><Linkedin size={17} />linkedin.com/in/eknath--katole</a>
             <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer"><Github size={17} />github.com/eknathkatole</a>
+            <a href="https://x.com/eknath_Katole" target="_blank" rel="noreferrer"><span style={{ display: 'inline-flex', width: 17, height: 17 }}><XIcon /></span>x.com/eknath_Katole</a>
           </div>
         </div>
         <form className="contact-form" onSubmit={handleSubmit}>
@@ -348,6 +350,7 @@ export function Footer() {
       <div>
         <a href="https://github.com/eknathkatole" target="_blank" rel="noreferrer" aria-label="GitHub"><Github size={16} /></a>
         <a href="https://www.linkedin.com/in/eknath--katole/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={16} /></a>
+        <a href="https://x.com/eknath_Katole" target="_blank" rel="noreferrer" aria-label="X (Twitter)"><span style={{ display: 'inline-flex', width: 16, height: 16 }}><XIcon /></span></a>
       </div>
     </footer>
   );
